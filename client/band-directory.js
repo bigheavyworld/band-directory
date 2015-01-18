@@ -21,7 +21,7 @@ Template.add.events({
   }
 });
 
-Template.body.events({
+Template.home.events({
   'click .add-band': function() {
     Session.set("add", true);
   },
@@ -30,15 +30,9 @@ Template.body.events({
   },
 });
 
-Template.body.helpers({
+Template.home.helpers({
   bands: function () {
-    var query = Session.get("query");
-    if (query == '') {
-      return Bands.find({}, {sort: {band_name: 1}});
-    }
-    else {
-      return Bands.find({$text: {$search: query}}, {sort: {band_name: 1}});
-    }
+    return Bands.find({}, {sort: {band_name: 1}});
   },
   addform: function() {
     return Session.get("add");
