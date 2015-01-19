@@ -1,0 +1,24 @@
+<template name="home">
+  <h1>Big Heavy World Band Guide</h1>
+
+  {{#if addform}}
+    {{> add}}
+  {{else}}
+    <button class="btn btn-primary add-band">Add Band</button>
+  {{/if}}
+
+  <table class="table table-striped">
+   <thead>
+   <tr>
+     <th>Band Name</th>
+     <th>City</th>
+     <th>State</th>
+   </tr>
+   </thead>
+  <tbody>
+  {{#each bands}}
+    {{> band}}
+  {{/each}}
+  </tbody>
+  </table>
+</template>
